@@ -1,0 +1,38 @@
+{
+  "name":"Points",
+  "admin_menus": {
+    "Points": {
+        "icon": "link",
+        "index": "4",
+        "menu": {
+            "Configurations": {
+                "icon": "cog",
+                "route": "/admin/points/config"
+            },
+            "Articles": {
+                "icon": "object-group",
+                "route": "/admin/points/item"
+            },
+            "Offres": {
+                "icon": "link",
+                "route": "/admin/points/offer"
+            }
+        }
+    }
+  },
+   "navbar_routes":{
+   },
+  "author":"nivcoo",
+  "version":"1.0.0",
+  "useEvents":false,
+  "permissions" : {
+    "available" : [],
+    "default" : {
+      "0" : [],
+      "2" : []
+    }
+  },
+  "requirements" : {
+    "CMS" : "^1.6.0"
+  }
+}

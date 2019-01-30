@@ -1,0 +1,18 @@
+{
+  "POINTS__CONFIG": "Configuration générale",
+  "POINTS__SHOPGUI": "Nom du menu '/pshop'",
+  "POINTS__GUI": "Nom du menu '/pgui'",
+  "POINTS__ADD_ITEM": "Ajouter un article",
+  "POINTS__MODIFY_ITEM": "Modifier un article",
+  "POINTS__ITEM_NAME": "Nom de l'article",
+  "POINTS__ITEM_PRICE": "Prix de l'article",
+  "POINTS__ITEM_PRICEIG": "Prix en jeux",
+  "POINTS__ITEM_ICON": "Id du bloc",
+  "POINTS__ITEM_LIST": "Liste des articles",
+  "POINTS__ADD_OFFER": "Ajouter une offre",
+  "POINTS__MODIFY_OFFER": "Modifier une offre",
+  "POINTS__OFFER_NAME": "Nom de l'offre",
+  "POINTS__OFFER_LORE": "Liste des lores",
+  "POINTS__OFFER_COMMANDS": "Liste des commandes",
+  "POINTS__OFFER_PRICE": "Prix"
+}
