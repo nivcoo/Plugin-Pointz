@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title"><?= $Lang->get('POINTS__ADD_ITEM') ?> </h3>
+          <h3 class="box-title"><?= $Lang->get('POINTZ__ADD_ITEM') ?> </h3>
         </div>
         <div class="box-body">
           <form action="<?= $this->Html->url(array('controller' => 'item', 'action' => 'add')) ?>" method="post" data-ajax="true" data-redirect-url="<?= $this->Html->url(array('controller' => 'item', 'action' => 'index', 'admin' => true)) ?>">
@@ -11,7 +11,7 @@
             <div class="ajax-msg"></div>
 
             <div class="form-group">
-              <label><?= $Lang->get('POINTS__ITEM_LIST') ?></label>
+              <label><?= $Lang->get('POINTZ__ITEM_LIST') ?></label>
               <select class="form-control" name="item_id">
                 <?php foreach ($search_items as $v) { ?>
                     <option value="<?= $v['Items']['id'] ?>"><?= $v['Items']['name'] ?></option>
@@ -20,13 +20,13 @@
             </div>
             
             <div class="form-group">
-              <label><?= $Lang->get('POINTS__ITEM_PRICEIG') ?></label>
+              <label><?= $Lang->get('POINTZ__ITEM_PRICEIG') ?></label>
               <input name="price_ig" class="form-control" type="text">
             </div>
             
             
             <div class="form-group">
-              <label><?= $Lang->get('POINTS__ITEM_ICON') ?></label>
+              <label><?= $Lang->get('POINTZ__ITEM_ICON') ?></label>
               <input name="icon" class="form-control" type="text">
             </div>
             

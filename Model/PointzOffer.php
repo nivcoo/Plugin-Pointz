@@ -1,5 +1,5 @@
 <?php
-class PointsOffer extends PointsAppModel
+class PointzOffer extends PointzAppModel
 {
     public $useTable = "offers";
     public function edit($id, $name, $icon, $price, $price_ig, $lores, $commands)

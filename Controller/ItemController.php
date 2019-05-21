@@ -1,6 +1,6 @@
 <?php
 
-class ItemController extends PointsAppController
+class ItemController extends PointzAppController
 {
 	
 	public function admin_index()
@@ -8,11 +8,11 @@ class ItemController extends PointsAppController
 		if ($this->isConnected AND $this->User->isAdmin()) {
 			$this->layout = 'admin';
             
-            $this->loadModel('Points.PointsItem');
+            $this->loadModel('Pointz.PointzItem');
             $this->loadModel('Shop.Items');
-           	$getItems = $this->PointsItem->find('all');
+           	$getItems = $this->PointzItem->find('all');
             foreach ($getItems as $v) {
-                $itemName[$v['PointsItem']['id']] = $this->Items->find('first', array('conditions' => array('id' => $v['PointsItem']['item_id'])))['Items'];
+                $itemName[$v['PointzItem']['id']] = $this->Items->find('first', array('conditions' => array('id' => $v['PointzItem']['item_id'])))['Items'];
             }
             $this->set(compact('getItems', 'itemName'));
 			
@@ -25,14 +25,14 @@ class ItemController extends PointsAppController
 	{
 		if ($this->isConnected AND $this->User->isAdmin()) {
 			$this->layout = 'admin';
-            $this->loadModel('Points.PointsItem');
+            $this->loadModel('Pointz.PointzItem');
             $this->loadModel('Shop.Items');
             $search_items = $this->Items->find('all');
             if($this->request->is('ajax')) {
 				$this->response->type('json');
 				$this->autoRender = null;
 				if (!empty($this->request->data['item_id']) AND !empty($this->request->data['price_ig']) AND !empty($this->request->data['icon'])) {
-                    $this->PointsItem->add(
+                    $this->PointzItem->add(
                         $this->request->data['item_id'],
                         $this->request->data['price_ig'],
                         $this->request->data['icon']
@@ -55,14 +55,14 @@ class ItemController extends PointsAppController
 	{
 		if ($this->isConnected AND $this->User->isAdmin()) {
 			$this->layout = 'admin';
-            $this->loadModel('Points.PointsItem');
+            $this->loadModel('Pointz.PointzItem');
             $this->loadModel('Shop.Items');
             $search_items = $this->Items->find('all');
-            $getItem = $this->PointsItem->find('first', array('conditions' => array('id' => $id)));
+            $getItem = $this->PointzItem->find('first', array('conditions' => array('id' => $id)));
 			if ($this->request->is('ajax')) {
                 $this->autoRender = false;
 				if (!empty($this->request->data['item_id']) AND !empty($this->request->data['price_ig']) AND !empty($this->request->data['icon'])) {
-                    $this->PointsItem->edit(
+                    $this->PointzItem->edit(
                         $this->request->data['id'],
                         $this->request->data['item_id'],
                         $this->request->data['price_ig'],
@@ -85,10 +85,10 @@ class ItemController extends PointsAppController
 	{
         if($this->isConnected AND $this->User->isAdmin())
 		{
-			$this->loadModel('Points.PointsItem');
+			$this->loadModel('Pointz.PointzItem');
             $this->autoRender = null;
-            $this->PointsItem->delete($id);
-            $this->redirect('/admin/points/item');
+            $this->PointzItem->delete($id);
+            $this->redirect('/admin/pointz/item');
 			
         } else {
             $this->redirect('/');

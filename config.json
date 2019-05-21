@@ -1,21 +1,21 @@
 {
-  "name":"Points",
+  "name":"Pointz",
   "admin_menus": {
-    "Points": {
+    "PointZ": {
         "icon": "link",
         "index": "4",
         "menu": {
             "Configurations": {
                 "icon": "cog",
-                "route": "/admin/points/config"
+                "route": "/admin/pointz/config"
             },
             "Articles": {
                 "icon": "object-group",
-                "route": "/admin/points/item"
+                "route": "/admin/pointz/item"
             },
             "Offres": {
                 "icon": "link",
-                "route": "/admin/points/offer"
+                "route": "/admin/pointz/offer"
             }
         }
     }
@@ -23,7 +23,7 @@
    "navbar_routes":{
    },
   "author":"nivcoo",
-  "version":"1.0.0",
+  "version":"1.0.1",
   "useEvents":false,
   "permissions" : {
     "available" : [],

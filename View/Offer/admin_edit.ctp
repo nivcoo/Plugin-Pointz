@@ -3,40 +3,40 @@
     <div class="col-md-12">
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title"><?= $Lang->get('POINTS__MODIFY_OFFER') ?></h3>
+          <h3 class="box-title"><?= $Lang->get('POINTZ__MODIFY_OFFER') ?></h3>
         </div>
         <div class="box-body">
           <form action="" method="post" data-ajax="true" data-redirect-url="<?= $this->Html->url(array('controller' => 'offer', 'action' => 'index', 'admin' => true)) ?>">
 
             <div class="ajax-msg"></div>
-            <input type="hidden" name="id" value="<?= $getOffer['PointsOffer']['id'] ?>">
+            <input type="hidden" name="id" value="<?= $getOffer['PointzOffer']['id'] ?>">
             
             <div class="form-group">
-              <label><?= $Lang->get('POINTS__OFFER_NAME') ?></label>
-              <input name="name" value="<?= $getOffer['PointsOffer']['name'] ?>" class="form-control" type="text">
+              <label><?= $Lang->get('POINTZ__OFFER_NAME') ?></label>
+              <input name="name" value="<?= $getOffer['PointzOffer']['name'] ?>" class="form-control" type="text">
             </div>
             
             <div class="form-group">
-              <label><?= $Lang->get('POINTS__ITEM_ICON') ?></label>
-              <input name="icon" value="<?= $getOffer['PointsOffer']['icon'] ?>" class="form-control" type="text">
+              <label><?= $Lang->get('POINTZ__ITEM_ICON') ?></label>
+              <input name="icon" value="<?= $getOffer['PointzOffer']['icon'] ?>" class="form-control" type="text">
             </div>
             
             <div class="form-group">
-              <label><?= $Lang->get('POINTS__OFFER_PRICE') ?></label>
-              <input name="price" value="<?= $getOffer['PointsOffer']['price'] ?>" class="form-control" type="text">
+              <label><?= $Lang->get('POINTZ__OFFER_PRICE') ?></label>
+              <input name="price" value="<?= $getOffer['PointzOffer']['price'] ?>" class="form-control" type="text">
             </div>
             
             <div class="form-group">
-              <label><?= $Lang->get('POINTS__ITEM_PRICEIG') ?></label>
-              <input name="price_ig" value="<?= $getOffer['PointsOffer']['price_ig'] ?>" class="form-control" type="text">
+              <label><?= $Lang->get('POINTZ__ITEM_PRICEIG') ?></label>
+              <input name="price_ig" value="<?= $getOffer['PointzOffer']['price_ig'] ?>" class="form-control" type="text">
             </div>
 
              <div class="form-group">
-                <label><?= $Lang->get('POINTS__OFFER_LORE') ?></label>
+                <label><?= $Lang->get('POINTZ__OFFER_LORE') ?></label>
                 <div class="input-group">
                     <input name="lores[0]" class="form-control" value="<?= htmlentities($lores[0]) ?>" type="text">
                     <div class="input-group-btn">
-                        <button data-j="<?= count($lores) ?>" type="button" id="addLore" class="btn btn-success"><?= $Lang->get('POINTS__ADD_OFFER') ?></button>
+                        <button data-j="<?= count($lores) ?>" type="button" id="addLore" class="btn btn-success"><?= $Lang->get('Pointz__ADD_OFFER') ?></button>
                     </div>
                 </div>
                 <div class="addLore">
@@ -57,7 +57,7 @@
             </div>
 
             <div class="form-group">
-                <label><?= $Lang->get('POINTS__OFFER_COMMANDS') ?></label>
+                <label><?= $Lang->get('POINTZ__OFFER_COMMANDS') ?></label>
                 <div class="input-group">
                     <input name="commands[0]" class="form-control" type="text" value="<?= htmlentities($commands[0]) ?>">
                     <div class="input-group-btn">

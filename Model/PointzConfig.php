@@ -1,6 +1,6 @@
 <?php
 
-class PointsConfig extends PointsAppModel
+class PointzConfig extends PointzAppModel
 {
     public $useTable = "configurations";
     public function edit($id, $name_shop, $name_gui)

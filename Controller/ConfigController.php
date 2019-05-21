@@ -1,6 +1,6 @@
 <?php
 
-class ConfigController extends PointsAppController
+class ConfigController extends PointzAppController
 {
 	
 	public function admin_index()
@@ -8,20 +8,20 @@ class ConfigController extends PointsAppController
 		if ($this->isConnected AND $this->User->isAdmin()) {
 			$this->layout = 'admin';
             
-            $this->loadModel('Points.PointsConfig');
-           	$configPoints = $this->PointsConfig->find('first');
+            $this->loadModel('Pointz.PointzConfig');
+           	$configPointz = $this->PointzConfig->find('first');
             if ($this->request->is('ajax')) {
                 $this->autoRender = false;
                 $this->response->type('json');
 				if (!empty($this->request->data['name_shop']) AND !empty($this->request->data['name_gui'])) {
                     if ($this->request->data['id']) {
-                        $this->PointsConfig->edit(
+                        $this->PointzConfig->edit(
                             $this->request->data['id'],
                             $this->request->data['name_shop'],
                             $this->request->data['name_gui']
                         );
                     } else {
-                        $this->PointsConfig->add(
+                        $this->PointzConfig->add(
                             $this->request->data['name_shop'],
                             $this->request->data['name_gui']
                         );
@@ -33,7 +33,7 @@ class ConfigController extends PointsAppController
 			} else {
                 $this->response->body(json_encode(array('statut' => false, 'msg' => $this->Lang->get('ERROR__BAD_REQUEST'))));
             }
-			$this->set(compact('configPoints'));
+			$this->set(compact('configPointz'));
 		} else {
 			$this->redirect('/');
 		}

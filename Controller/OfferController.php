@@ -1,35 +1,35 @@
 <?php
 
-class OfferController extends PointsAppController
+class OfferController extends PointzAppController
 {
-	
-	public function admin_index()
-	{
-		if ($this->isConnected AND $this->User->isAdmin()) {
-			$this->layout = 'admin';
-            
-            $this->loadModel('Points.PointsOffer');
-           	$getOffers = $this->PointsOffer->find('all');
+
+    public function admin_index()
+    {
+        if ($this->isConnected AND $this->User->isAdmin()) {
+            $this->layout = 'admin';
+
+            $this->loadModel('Pointz.PointzOffer');
+            $getOffers = $this->PointzOffer->find('all');
             $this->set(compact('getOffers'));
-			
-		} else {
-			$this->redirect('/');
-		}
-	}
-    
+
+        } else {
+            $this->redirect('/');
+        }
+    }
+
     public function admin_add()
-	{
-		if ($this->isConnected AND $this->User->isAdmin()) {
-			$this->layout = 'admin';
-            $this->loadModel('Points.PointsOffer');
+    {
+        if ($this->isConnected AND $this->User->isAdmin()) {
+            $this->layout = 'admin';
+            $this->loadModel('Pointz.PointzOffer');
             $this->loadModel('Shop.Items');
-            if($this->request->is('ajax')) {
-				$this->response->type('json');
-				$this->autoRender = null;
-				if (!empty($this->request->data['name']) AND !empty($this->request->data['icon']) AND !empty($this->request->data['price']) AND !empty($this->request->data['price_ig']) AND !empty($this->request->data['lores']) AND !empty($this->request->data['commands'])) {
+            if ($this->request->is('ajax')) {
+                $this->response->type('json');
+                $this->autoRender = null;
+                if (!empty($this->request->data['name']) AND !empty($this->request->data['icon']) AND !empty($this->request->data['price']) AND !empty($this->request->data['price_ig']) AND !empty($this->request->data['lores']) AND !empty($this->request->data['commands'])) {
                     $commands = implode('[{+}]', $this->request->data['commands']);
                     $lores = implode('[{+}]', $this->request->data['lores']);
-                    $this->PointsOffer->add(
+                    $this->PointzOffer->add(
                         $this->request->data['name'],
                         $this->request->data['icon'],
                         $this->request->data['price'],
@@ -37,39 +37,39 @@ class OfferController extends PointsAppController
                         $lores,
                         $commands
                     );
-					$this->response->body(json_encode(array('statut' => true, 'msg' => $this->Lang->get('GLOBAL__SUCCESS'))));
-				} else {
+                    $this->response->body(json_encode(array('statut' => true, 'msg' => $this->Lang->get('GLOBAL__SUCCESS'))));
+                } else {
                     $this->response->body(json_encode(array('statut' => false, 'msg' => $this->Lang->get('ERROR__FILL_ALL_FIELDS'))));
                 }
-			} else {
+            } else {
                 $this->response->body(json_encode(array('statut' => false, 'msg' => $this->Lang->get('ERROR__BAD_REQUEST'))));
             }
-			
-		} else {
-			$this->redirect('/');
-		}
-	}
-    
+
+        } else {
+            $this->redirect('/');
+        }
+    }
+
     public function admin_edit($id)
-	{
-		if ($this->isConnected AND $this->User->isAdmin()) {
-			$this->layout = 'admin';
-            $this->loadModel('Points.PointsOffer');
-            $getOffer = $this->PointsOffer->find('first', array('conditions' => array('id' => $id)));
-            $commands = $getOffer['PointsOffer']['commands'];
+    {
+        if ($this->isConnected AND $this->User->isAdmin()) {
+            $this->layout = 'admin';
+            $this->loadModel('Pointz.PointzOffer');
+            $getOffer = $this->PointzOffer->find('first', array('conditions' => array('id' => $id)));
+            $commands = $getOffer['PointzOffer']['commands'];
             $commands = explode('[{+}]', $commands);
-            unset($getOffer['PointsOffer']['commands']);
-            
-            $lores = $getOffer['PointsOffer']['lores'];
+            unset($getOffer['PointzOffer']['commands']);
+
+            $lores = $getOffer['PointzOffer']['lores'];
             $lores = explode('[{+}]', $lores);
-            unset($getOffer['PointsOffer']['lores']);
-            
-			if ($this->request->is('ajax')) {
+            unset($getOffer['PointzOffer']['lores']);
+
+            if ($this->request->is('ajax')) {
                 $this->autoRender = false;
-				if (!empty($this->request->data['name']) AND !empty($this->request->data['icon']) AND !empty($this->request->data['price']) AND !empty($this->request->data['price_ig']) AND !empty($this->request->data['lores']) AND !empty($this->request->data['commands'])) {
+                if (!empty($this->request->data['name']) AND !empty($this->request->data['icon']) AND !empty($this->request->data['price']) AND !empty($this->request->data['price_ig']) AND !empty($this->request->data['lores']) AND !empty($this->request->data['commands'])) {
                     $commands = implode('[{+}]', $this->request->data['commands']);
                     $lores = implode('[{+}]', $this->request->data['lores']);
-                    $this->PointsOffer->edit(
+                    $this->PointzOffer->edit(
                         $this->request->data['id'],
                         $this->request->data['name'],
                         $this->request->data['icon'],
@@ -82,13 +82,26 @@ class OfferController extends PointsAppController
                 } else {
                     $this->response->body(json_encode(array('statut' => false, 'msg' => $this->Lang->get('ERROR__FILL_ALL_FIELDS'))));
                 }
-			} else {
+            } else {
                 $this->response->body(json_encode(array('statut' => false, 'msg' => $this->Lang->get('ERROR__BAD_REQUEST'))));
             }
-			$this->set(compact('getOffer', 'commands', 'lores'));
-		} else {
-			$this->redirect('/');
-		}
-	}
-    
+            $this->set(compact('getOffer', 'commands', 'lores'));
+        } else {
+            $this->redirect('/');
+        }
+    }
+
+    public function admin_delete($id)
+    {
+        if ($this->isConnected AND $this->User->isAdmin()) {
+            $this->loadModel('Pointz.PointzOffer');
+            $this->autoRender = null;
+            $this->PointzOffer->delete($id);
+            $this->redirect('/admin/pointz/offer');
+
+        } else {
+            $this->redirect('/');
+        }
+    }
+
 }
