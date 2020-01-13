@@ -6,7 +6,7 @@ class PointzItem extends PointzAppModel
     {
 		$item_id = $this->getDataSource()->value($item_id, 'integer');
         $price_ig = $this->getDataSource()->value($price_ig, 'integer');
-		$icon = $this->getDataSource()->value($icon, 'integer');
+		$icon = $this->getDataSource()->value($icon, 'string');
 		
 		return $this->updateAll([
 			'item_id' => $item_id,

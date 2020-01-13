@@ -23,7 +23,7 @@
    "navbar_routes":{
    },
   "author":"nivcoo",
-  "version":"1.0.1",
+  "version":"2.0.0",
   "useEvents":false,
   "permissions" : {
     "available" : [],

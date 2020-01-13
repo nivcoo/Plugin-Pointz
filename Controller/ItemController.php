@@ -51,7 +51,7 @@ class ItemController extends PointzAppController
 		}
 	}
     
-    public function admin_edit($id)
+    public function admin_edit($id = false)
 	{
 		if ($this->isConnected AND $this->User->isAdmin()) {
 			$this->layout = 'admin';
@@ -63,7 +63,7 @@ class ItemController extends PointzAppController
                 $this->autoRender = false;
 				if (!empty($this->request->data['item_id']) AND !empty($this->request->data['price_ig']) AND !empty($this->request->data['icon'])) {
                     $this->PointzItem->edit(
-                        $this->request->data['id'],
+                        $id,
                         $this->request->data['item_id'],
                         $this->request->data['price_ig'],
                         $this->request->data['icon']
@@ -75,7 +75,7 @@ class ItemController extends PointzAppController
 			} else {
                 $this->response->body(json_encode(array('statut' => false, 'msg' => $this->Lang->get('ERROR__BAD_REQUEST'))));
             }
-			$this->set(compact('getItem', 'search_items'));
+			$this->set(compact('getItem', 'search_items', 'id'));
 		} else {
 			$this->redirect('/');
 		}

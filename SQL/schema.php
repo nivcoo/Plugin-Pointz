@@ -21,7 +21,7 @@ class PointzAppSchema extends CakeSchema
     public $pointz__offers = [
 		'id' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 20, 'unsigned' => false, 'key' => 'primary'],
 		'name' => ['type' => 'string', 'null' => false, 'default' => null, 'length' => 255, 'unsigned' => false],
-		'icon' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 8, 'unsigned' => false],
+        'icon' => ['type' => 'string', 'null' => true, 'default' => null, 'length' => 255, 'unsigned' => false],
         'price' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 8, 'unsigned' => false],
         'price_ig' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 8, 'unsigned' => false],
 		'lores' => ['type' => 'string', 'null' => true, 'default' => null, 'length' => 255, 'unsigned' => false],
@@ -30,8 +30,8 @@ class PointzAppSchema extends CakeSchema
     
     public $pointz__items = [
 		'id' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 20, 'unsigned' => false, 'key' => 'primary'],
+        'icon' => ['type' => 'string', 'null' => true, 'default' => null, 'length' => 255, 'unsigned' => false],
 		'item_id' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 8, 'unsigned' => false],
 		'price_ig' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 8, 'unsigned' => false],
-        'icon' => ['type' => 'integer', 'null' => false, 'default' => null, 'length' => 8, 'unsigned' => false],
 	];
 }

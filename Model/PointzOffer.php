@@ -6,7 +6,7 @@ class PointzOffer extends PointzAppModel
     {
         
 		$name = $this->getDataSource()->value($name, 'string');
-		$icon = $this->getDataSource()->value($icon, 'integer');
+		$icon = $this->getDataSource()->value($icon, 'string');
         $price = $this->getDataSource()->value($price, 'integer');
 		$price_ig = $this->getDataSource()->value($price_ig, 'integer');
         $lores = $this->getDataSource()->value($lores, 'string');

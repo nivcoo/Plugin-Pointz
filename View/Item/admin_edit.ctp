@@ -6,7 +6,7 @@
           <h3 class="box-title"><?= $Lang->get('POINTZ__MODIFY_ITEM') ?> </h3>
         </div>
         <div class="box-body">
-          <form action="<?= $this->Html->url(array('controller' => 'item', 'action' => 'add')) ?>" method="post" data-ajax="true" data-redirect-url="<?= $this->Html->url(array('controller' => 'item', 'action' => 'index', 'admin' => true)) ?>">
+          <form action="<?= $this->Html->url(array('controller' => 'item', 'action' => 'edit/'.$id)) ?>" method="post" data-ajax="true" data-redirect-url="<?= $this->Html->url(array('controller' => 'item', 'action' => 'index', 'admin' => true)) ?>">
 
             <div class="ajax-msg"></div>
 
