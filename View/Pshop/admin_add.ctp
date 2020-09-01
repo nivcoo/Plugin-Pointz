@@ -6,7 +6,7 @@
           <h3 class="box-title"><?= $Lang->get('POINTZ__ADD_ITEM') ?> </h3>
         </div>
         <div class="box-body">
-          <form action="<?= $this->Html->url(array('controller' => 'item', 'action' => 'add')) ?>" method="post" data-ajax="true" data-redirect-url="<?= $this->Html->url(array('controller' => 'item', 'action' => 'index', 'admin' => true)) ?>">
+          <form action="<?= $this->Html->url(array('controller' => 'pshop', 'action' => 'add')) ?>" method="post" data-ajax="true" data-redirect-url="<?= $this->Html->url(array('controller' => 'pshop', 'action' => 'index', 'admin' => true)) ?>">
 
             <div class="ajax-msg"></div>
 
@@ -32,7 +32,7 @@
             
 			
             <div class="pull-right">
-              <a href="<?= $this->Html->url(array('controller' => 'item', 'action' => 'index', 'admin' => true)) ?>" class="btn btn-default"><?= $Lang->get('GLOBAL__CANCEL') ?></a>
+              <a href="<?= $this->Html->url(array('controller' => 'pshop', 'action' => 'index', 'admin' => true)) ?>" class="btn btn-default"><?= $Lang->get('GLOBAL__CANCEL') ?></a>
               <button class="btn btn-primary" type="submit"><?= $Lang->get('GLOBAL__SUBMIT') ?></button>
             </div>
           </form>

@@ -5,17 +5,17 @@
         "icon": "link",
         "index": "4",
         "menu": {
-            "Configurations": {
+            "POINTZ__DROPDOWN_CONFIG": {
                 "icon": "cog",
                 "route": "/admin/pointz/config"
             },
-            "Articles": {
+            "POINTZ__DROPDOWN_SHOP": {
                 "icon": "object-group",
-                "route": "/admin/pointz/item"
+                "route": "/admin/pointz/pshop"
             },
-            "Offres": {
+            "POINTZ__DROPDOWN_CONVERTER": {
                 "icon": "link",
-                "route": "/admin/pointz/offer"
+                "route": "/admin/pointz/pconverter"
             }
         }
     }
@@ -23,7 +23,7 @@
    "navbar_routes":{
    },
   "author":"nivcoo",
-  "version":"2.0.0",
+  "version":"2.0.3",
   "useEvents":false,
   "permissions" : {
     "available" : [],

@@ -1,7 +1,7 @@
 <?php
-class PointzItem extends PointzAppModel
+class PointzItemsShop extends PointzAppModel
 {
-    public $useTable = "items";
+    public $useTable = "items__shop";
     public function edit($id, $item_id, $price_ig, $icon)
     {
 		$item_id = $this->getDataSource()->value($item_id, 'integer');

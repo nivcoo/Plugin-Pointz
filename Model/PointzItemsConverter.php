@@ -1,7 +1,7 @@
 <?php
-class PointzOffer extends PointzAppModel
+class PointzItemsConverter extends PointzAppModel
 {
-    public $useTable = "offers";
+    public $useTable = "items__converter";
     public function edit($id, $name, $icon, $price, $price_ig, $lores, $commands)
     {
         
