@@ -18,5 +18,10 @@
   "POINTZ__OFFER_NAME": "Nom de l'offre",
   "POINTZ__OFFER_LORE": "Liste des lores",
   "POINTZ__OFFER_COMMANDS": "Liste des commandes",
-  "POINTZ__OFFER_PRICE": "Prix (Gain)"
+  "POINTZ__OFFER_PRICE": "Prix (Gain)",
+  "POINTZ__KEY": "Clés de Sécurité (Liaison)",
+  "POINTZ__KEY_GENERATE_NEW": "Générer une paire de clés",
+  "POINTZ__KEY_PUBLIC": "Clé public (à mettre dans la config du plugin ainsi que l'url du site)",
+  "POINTZ__KEY_NONE": "Commencer par générer une pair de clés",
+  "POINTZ__KEY_PRIVATE": "Clé privé (à ne surtout pas divulguer)"
 }

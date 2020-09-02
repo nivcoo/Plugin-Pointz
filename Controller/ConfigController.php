@@ -35,4 +35,43 @@ class ConfigController extends PointzAppController
         }
     }
 
+
+    public function admin_generate_key()
+    {
+        if ($this->isConnected and $this->User->isAdmin()) {
+            $this->layout = 'admin';
+
+            $this->loadModel('Pointz.PointzConfig');
+            $configPointz = $this->PointzConfig->find('first');
+
+            $this->autoRender = false;
+            if (!$configPointz['PointzConfig']['id']) {
+                $this->PointzConfig->add();
+            }
+            $id = (!$configPointz['PointzConfig']['id'])? 1: $configPointz['PointzConfig']['id'];
+            $config = array(
+                "digest_alg" => "sha512",
+                "private_key_bits" => 2048,
+                "private_key_type" => OPENSSL_KEYTYPE_RSA,
+            );
+
+            $keys = openssl_pkey_new($config);
+
+            openssl_pkey_export($keys, $private_key);
+
+            $public_key = openssl_pkey_get_details($keys)["key"];
+
+
+            $this->PointzConfig->edit_keys(
+                $id,
+                $public_key,
+                $private_key
+            );
+
+            $this->redirect('/admin/pointz/config');
+        } else {
+            $this->redirect('/');
+        }
+    }
+
 }
