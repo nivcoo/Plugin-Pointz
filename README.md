@@ -3,8 +3,8 @@
 
 ## Plugin Spigot
 
-Le plugin discord est disponible [ici](https://www.spigotmc.org/resources/pointz-mineweb-cms.62187/)
-Il suffit de lier la base de donnée au plugin et configurer ensuite via le panel admin.
+Le plugin est disponible [ici](https://www.spigotmc.org/resources/pointz-mineweb-cms.62187/)
+Il suffit de lier la base de donnée au plugin et ensuite le configurer via le panel admin.
 
 ## Description
 Le plugin Pointz permet de lier votre serveur au site.
