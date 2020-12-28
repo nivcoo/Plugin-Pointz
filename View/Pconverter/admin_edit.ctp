@@ -82,7 +82,7 @@
                             <small><b>{PLAYER}</b> = Pseudo <br><b><?= $Lang->get('GLOBAL__EXAMPLE') ?>:</b> <i>give {PLAYER} 1 1</i></small>
                         </div>
 
-                        <div class="pull-right">
+                        <div class="float-right">
                             <a href="<?= $this->Html->url(array('controller' => 'pconverter', 'action' => 'index', 'admin' => true)) ?>" class="btn btn-default"><?= $Lang->get('GLOBAL__CANCEL') ?></a>
                             <button class="btn btn-primary" type="submit"><?= $Lang->get('GLOBAL__SUBMIT') ?></button>
                         </div>

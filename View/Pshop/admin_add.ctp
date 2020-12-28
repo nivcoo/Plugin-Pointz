@@ -31,7 +31,7 @@
                         </div>
 
 
-                        <div class="pull-right">
+                        <div class="float-right">
                             <a href="<?= $this->Html->url(array('controller' => 'pshop', 'action' => 'index', 'admin' => true)) ?>" class="btn btn-default"><?= $Lang->get('GLOBAL__CANCEL') ?></a>
                             <button class="btn btn-primary" type="submit"><?= $Lang->get('GLOBAL__SUBMIT') ?></button>
                         </div>
