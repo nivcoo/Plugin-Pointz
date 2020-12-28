@@ -1,38 +1,37 @@
 {
-  "name":"Pointz",
-  "admin_menus": {
-    "PointZ": {
-        "icon": "link",
-        "index": "4",
-        "menu": {
-            "POINTZ__DROPDOWN_CONFIG": {
-                "icon": "cog",
-                "route": "/admin/pointz/config"
-            },
-            "POINTZ__DROPDOWN_SHOP": {
-                "icon": "object-group",
-                "route": "/admin/pointz/pshop"
-            },
-            "POINTZ__DROPDOWN_CONVERTER": {
-                "icon": "link",
-                "route": "/admin/pointz/pconverter"
+    "name": "Pointz",
+    "author": "nivcoo",
+    "version": "2.1.1",
+    "admin_menus": {
+        "PointZ": {
+            "icon": "link",
+            "index": 4,
+            "menu": {
+                "POINTZ__DROPDOWN_CONFIG": {
+                    "icon": "cog",
+                    "route": "/admin/pointz/config"
+                },
+                "POINTZ__DROPDOWN_SHOP": {
+                    "icon": "object-group",
+                    "route": "/admin/pointz/pshop"
+                },
+                "POINTZ__DROPDOWN_CONVERTER": {
+                    "icon": "link",
+                    "route": "/admin/pointz/pconverter"
+                }
             }
         }
+    },
+    "navbar_routes": {},
+    "useEvents": false,
+    "permissions": {
+        "available": [],
+        "default": {
+            "0": [],
+            "2": []
+        }
+    },
+    "requirements": {
+        "CMS": "^1.11.0"
     }
-  },
-   "navbar_routes":{
-   },
-  "author":"nivcoo",
-  "version":"2.1.0",
-  "useEvents":false,
-  "permissions" : {
-    "available" : [],
-    "default" : {
-      "0" : [],
-      "2" : []
-    }
-  },
-  "requirements" : {
-    "CMS" : "^1.6.0"
-  }
 }
