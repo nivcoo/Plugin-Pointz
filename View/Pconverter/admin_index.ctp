@@ -1,11 +1,11 @@
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title"><?= $Lang->get('POINTZ__ADD_OFFER') ?> &nbsp;&nbsp;<a href="<?= $this->Html->url(array('controller' => 'pconverter', 'action' => 'add', 'admin' => true, 'plugin' => 'pointz')) ?>" class="btn btn-success"><?= $Lang->get('GLOBAL__ADD') ?></a></h3>
+			<div class="card">
+				<div class="card-header with-border">
+					<h3 class="card-title"><?= $Lang->get('POINTZ__ADD_OFFER') ?> &nbsp;&nbsp;<a href="<?= $this->Html->url(array('controller' => 'pconverter', 'action' => 'add', 'admin' => true, 'plugin' => 'pointz')) ?>" class="btn btn-success"><?= $Lang->get('GLOBAL__ADD') ?></a></h3>
 				</div>
-				<div class="box-body">
+				<div class="card-body">
 
 					<table class="table table-bordered dataTable">
 						<thead>
