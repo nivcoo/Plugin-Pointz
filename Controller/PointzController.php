@@ -41,19 +41,23 @@ class PointzController extends PointzAppController
 
     }
 
-
-    private function get_player_informations($params)
+    private function get_players_informations($params)
     {
-        $username = $this->User->getFromUser('pseudo', $params['username']);
-        if (!$username)
-            return ['error' => true, 'message' => "Not registered"];
+        $players_username = explode(";", $params["players"]);
+        $returnValues = [];
+        foreach($players_username as $pseudo) {
+            $username = $this->User->getFromUser('pseudo', $pseudo);
+            if (!$username)
+                return ['error' => true, 'message' => "Not registered"];
 
-        $money = $this->User->getFromUser('money', $params['username']);
-        $username = $this->User->getFromUser('pseudo', $params['username']);
-        if (!$money)
-            $money = 0;
+            $money = $this->User->getFromUser('money', $pseudo);
+            if (!$money)
+                $money = 0;
+            $returnValues[] = ['money' => $money, 'username' => $username];
+        }
 
-        return ['error' => false, 'money' => $money, 'username' => $username];
+
+        return ['error' => false, "players" => $returnValues];
 
     }
 
