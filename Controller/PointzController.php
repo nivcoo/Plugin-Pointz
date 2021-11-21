@@ -48,7 +48,7 @@ class PointzController extends PointzAppController
         foreach($players_username as $pseudo) {
             $username = $this->User->getFromUser('pseudo', $pseudo);
             if (!$username)
-                return ['error' => true, 'message' => "Not registered"];
+                $username = $pseudo;
 
             $money = $this->User->getFromUser('money', $pseudo);
             if (!$money)
