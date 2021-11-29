@@ -22,7 +22,7 @@ class PointzController extends PointzAppController
             return;
 
 
-        openssl_private_decrypt(base64_decode($this->base64_decode_url((array_keys($this->request->data)[0]))), $decoded_data, $configPointz['PointzConfig']['private_key']);
+        openssl_public_decrypt(base64_decode($this->base64_decode_url((array_keys($this->request->data)[0]))), $decoded_data, $configPointz['PointzConfig']['public_key']);
 
         parse_str($decoded_data, $decoded_data);
         $type = $decoded_data['type'];
