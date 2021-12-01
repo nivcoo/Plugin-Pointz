@@ -9,26 +9,6 @@ class PointzController extends PointzAppController
         return str_replace(['-', '_'], ['+', '/'], $string) . "=";
     }
 
-    function asBin($str) {
-        $byte_max = 127;
-        $byte_min = -128;
-        if($str == "") {
-            return null;
-        }
-        $bytes = array();
-        for($i = 0; $i < floor(strlen($str) / 2); $i++){
-            $j = intval(substr($str, $i * 2, 1), 16);
-            $k = intval(substr($str, $i * 2 + 1, 1), 16);
-            $value = $j * 16 + $k;
-            // emulation byte-overflow in java
-            if ($value > $byte_max) {
-                $value = $value - $byte_max + $byte_min - 1;
-            }
-            $bytes[$i] = $value;
-        }
-        return $bytes;
-    }
-
     public function api()
     {
 
