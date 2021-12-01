@@ -9,6 +9,26 @@ class PointzController extends PointzAppController
         return str_replace(['-', '_'], ['+', '/'], $string) . "=";
     }
 
+    function asBin($str) {
+        $byte_max = 127;
+        $byte_min = -128;
+        if($str == "") {
+            return null;
+        }
+        $bytes = array();
+        for($i = 0; $i < floor(strlen($str) / 2); $i++){
+            $j = intval(substr($str, $i * 2, 1), 16);
+            $k = intval(substr($str, $i * 2 + 1, 1), 16);
+            $value = $j * 16 + $k;
+            // emulation byte-overflow in java
+            if ($value > $byte_max) {
+                $value = $value - $byte_max + $byte_min - 1;
+            }
+            $bytes[$i] = $value;
+        }
+        return $bytes;
+    }
+
     public function api()
     {
 
@@ -19,12 +39,17 @@ class PointzController extends PointzAppController
         $configPointz = $this->PointzConfig->find('first');
 
         if (!$configPointz['PointzConfig']['id'])
-            return;
+            return $this->response->body(json_encode(['error' => true, 'message' => 'Syntax error']));
 
+        $json = json_decode(base64_decode($this->base64_decode_url(array_keys($this->request->data)[0])), true);
 
-        openssl_public_decrypt(base64_decode($this->base64_decode_url((array_keys($this->request->data)[0]))), $decoded_data, $configPointz['PointzConfig']['public_key']);
+        $key = base64_decode($json["key"]);
+        openssl_public_decrypt($key, $decoded_key, $configPointz['PointzConfig']['public_key']);
+        $data = base64_decode($json["data"]);
+        $iv = base64_decode($json["iv"]);
+        $data = openssl_decrypt($data, "AES-128-CBC", $decoded_key, OPENSSL_RAW_DATA, $iv);
+        parse_str($data, $decoded_data);
 
-        parse_str($decoded_data, $decoded_data);
         $type = $decoded_data['type'];
 
         if (!$type)
